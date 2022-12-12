@@ -19,69 +19,61 @@ function callBackMap(element, index, array) {
 console.log(methodMap(arrayMethodMap, callBackMap))
 
 
-
-
-
-
 //                  2) Filtrando todos os numeros maiores que 20 com o metodo Filter
 
-const methodFilterArray = [19, 63, 45, 17, 29, 50, 37, 97, 96, 16]
+const methodFilterArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 function methodFilter(array, callBack) {
     let elementFilter = []
     let newElementFilter = []
     for (let index = 0; index < array.length; index++) {
         const currentValue = array[index]
+
         elementFilter[index] = callBack(currentValue, index, array)
-    }
-    
-    for (let i = 0; i < array.length; i++) {
-        if (elementFilter[i] !== undefined) {
-            newElementFilter.push(elementFilter[i])
+
+        if (elementFilter[index] !== false && elementFilter[index] !== undefined) {
+            newElementFilter.push(elementFilter[index])
         }
     }
-    return newElementFilter
-}
 
+    return newElementFilter
+
+}
 function callBackFilter(element, index, array) {
-    if (element > 20) {
+    if (element > 8) {
         return element
     }
 }
 console.log(methodFilter(methodFilterArray, callBackFilter))
 
 
-
-
-
-
 //                  3) Filtrando o primeiro  numero maior que 20 com o metodo find
 
-const methodFindArray = [19, 20, 10, 17, 49, 88, 70, 10, 51, 57]
+const methodFindArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 function methodFind(array, callBack) {
     let elementFind = []
 
     for (let index = 0; index < array.length; index++) {
         const currentValue = array[index]
+
         elementFind[index] = callBack(currentValue, index, array)
     }
 
     for (let i = 0; i < elementFind.length; i++) {
-        if (elementFind[i] !== undefined) {
+        if (elementFind[i] !== undefined && elementFind[i] !== false) {
             return elementFind[i]
         }
+
     }
 }
 
 function callbackFind(element, index, array) {
-    if (element > 20) {
+    if (element > 8) {
         return element
     }
 }
 console.log(methodFind(methodFindArray, callbackFind))
-
-
 
 
 
@@ -110,9 +102,6 @@ console.log(methodReduce(methodReduceArray, callBackReduce, positionIndexReduce)
 
 
 
-
-
-
 //                      5) Vericando se o numero esta dentro do array com o metodo includes.
 
 const methodIncludesArray = [14, 64, 17, 47, 48, 51, 96, 92, 92, 16]
@@ -129,9 +118,6 @@ function methodIncludes(array, searchElement, indexElement) {
     return false
 }
 console.log(methodIncludes(methodIncludesArray, searchNumberIncludes, positionIndexIncludes))
-
-
-
 
 
 
